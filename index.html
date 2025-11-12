@@ -3,6 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
     <title>欢迎加入青果俱乐部</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -296,6 +304,11 @@
 
 
     
+    <!-- 访问计数器 -->
+    <div id="visitor-counter" class="fixed bottom-4 right-4 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full text-sm text-primary border border-primary/30 shadow-md z-40">
+        访问次数: <span id="visit-count">0</span>
+    </div>
+
     <!-- 页脚 -->
     <footer class="bg-gray-800 text-white py-12">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -408,6 +421,28 @@
                     button.appendChild(circle);
                 });
             });
+            
+            // 本地访问计数器
+            (function() {
+                // 获取当前访问次数
+                let count = localStorage.getItem('visitorCount') || 0;
+                count = parseInt(count) + 1;
+                localStorage.setItem('visitorCount', count);
+                
+                // 更新显示
+                document.getElementById('visit-count').textContent = count.toLocaleString();
+                
+                // 显示计数器动画
+                const counter = document.getElementById('visitor-counter');
+                counter.style.opacity = '0';
+                counter.style.transform = 'translateY(20px)';
+                counter.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                
+                setTimeout(() => {
+                    counter.style.opacity = '1';
+                    counter.style.transform = 'translateY(0)';
+                }, 1000);
+            })();
         });
     </script>
     
@@ -431,4 +466,3 @@
     </style>
 </body>
 </html>
-
