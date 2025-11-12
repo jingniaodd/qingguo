@@ -99,8 +99,8 @@
                 <!-- 桌面端导航链接 -->
                 <div class="hidden sm:flex items-center">
                     <a href="#services" class="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium transition-all-subtle">服务</a>
-                    <a href="#download" class="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium transition-all-subtle">下载</a>
                     <a href="#contact" class="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium transition-all-subtle">联系我们</a>
+                    <a href="#download" class="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium transition-all-subtle">下载</a>
                 </div>
             </div>
         </div>
@@ -109,8 +109,8 @@
         <div id="mobile-menu" class="hidden sm:hidden bg-white shadow-md">
             <div class="px-2 pt-2 pb-3 space-y-1">
                 <a href="#services" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-md">服务</a>
-                <a href="#download" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-md">下载</a>
                 <a href="#contact" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-md">联系我们</a>
+                <a href="#download" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-md">下载</a>
             </div>
         </div>
     </nav>
@@ -147,7 +147,7 @@
                         </div>
                         <div class="ml-4">
                             <h3 class="text-lg font-medium text-gray-900">直播教学</h3>
-                            <p class="mt-1 text-gray-600">每日4场腾讯会议直播教学，深入浅出讲解市场动态 14：30 15：30 19：30 20：30 </p>
+                            <p class="mt-1 text-gray-600">每日4场腾讯会议直播教学，深入浅出讲解市场动态</p>
                         </div>
                     </div>
                     
@@ -189,6 +189,47 @@
                             <h3 class="text-lg font-medium text-gray-900">高胜率策略</h3>
                             <p class="mt-1 text-gray-600">90%高胜率策略，多位大佬分析师共同打造</p>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 联系我们 -->
+        <section id="contact" class="mb-16">
+            <div class="bg-gradient-to-r from-primary to-secondary rounded-xl shadow-lg p-8 hover-card text-white">
+                <h2 class="text-2xl font-bold mb-6 flex items-center">
+                    <i class="fa fa-comments-o mr-3"></i>联系我们
+                </h2>
+                
+                <div class="space-y-6">
+                    <p class="text-lg text-gray-100">
+                        下载完成Safew后，使用邮箱注册账号，然后添加我们的专属助理，即可加入社区交流群。
+                    </p>
+                    
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-lg border border-white border-opacity-20">
+                        <div class="flex items-center mb-4">
+                            <div class="flex-shrink-0 h-12 w-12 rounded-full bg-white bg-opacity-20 flex items-center justify-center">
+                                <i class="fa fa-user-o text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-xl font-bold">专属助理</h3>
+                                <p class="text-gray-200">添加我们的助理，获取一对一指导</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white bg-opacity-5 p-4 rounded-lg flex items-center justify-between">
+                            <div>
+                                <p class="text-sm text-gray-300">Safew账号</p>
+                                <p class="text-2xl font-mono font-bold">@QG799</p>
+                            </div>
+                            <button id="add-contact-btn" class="bg-white text-primary px-6 py-2 rounded-lg font-medium hover:bg-opacity-90 transition-all-subtle flex items-center relative overflow-hidden">
+                                <i class="fa fa-plus mr-2"></i>添加
+                            </button>
+                        </div>
+                        
+                        <p class="mt-4 text-sm text-gray-300">
+                            <i class="fa fa-info-circle mr-2"></i>添加后，助理会在24小时内邀请您加入社区交流群
+                        </p>
                     </div>
                 </div>
             </div>
@@ -254,36 +295,14 @@
                 </div>
             </div>
         </section>
-
-        <!-- 联系我们 -->
-        <section id="contact">
-            <div class="bg-white rounded-xl shadow-card p-8 hover-card">
-                <h2 class="text-2xl font-bold text-primary mb-6 flex items-center">
-                    <i class="fa fa-envelope-o mr-3 text-accent"></i>联系我们
-                </h2>
-                
-                <div class="space-y-6">
-                    <p class="text-lg text-gray-700">
-                        下载完成Safew后，使用邮箱注册账号。
-                    </p>
-                    
-                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded">
-                        <div class="flex">
-                            <div class="flex-shrink-0">
-                                <i class="fa fa-exclamation-triangle text-yellow-400"></i>
-                            </div>
-                            <div class="ml-3">
-                                <p class="text-sm text-yellow-700 font-medium">
-                                    添加 @QG799 你的专属助理Safew账号，邀请你入社区交流群。
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
     </div>
 
+    <!-- 成功提示 -->
+    <div id="success-toast" class="success-toast">
+        <i class="fa fa-check-circle"></i>
+        <span>已成功添加 @QG799 到您的联系人</span>
+    </div>
+    
     <!-- 页脚 -->
     <footer class="bg-gray-800 text-white py-12">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -341,6 +360,43 @@
                     icon.classList.remove('fa-times');
                     icon.classList.add('fa-bars');
                 });
+            });
+            
+            // 添加联系人按钮交互
+            const addContactBtn = document.getElementById('add-contact-btn');
+            const successToast = document.getElementById('success-toast');
+            
+            addContactBtn.addEventListener('click', function(e) {
+                // 添加点击波纹效果
+                const circle = document.createElement('span');
+                const diameter = Math.max(addContactBtn.clientWidth, addContactBtn.clientHeight);
+                const radius = diameter / 2;
+                
+                circle.style.width = circle.style.height = `${diameter}px`;
+                circle.style.left = `${e.clientX - addContactBtn.getBoundingClientRect().left - radius}px`;
+                circle.style.top = `${e.clientY - addContactBtn.getBoundingClientRect().top - radius}px`;
+                circle.classList.add('ripple');
+                
+                const ripple = addContactBtn.getElementsByClassName('ripple')[0];
+                if (ripple) {
+                    ripple.remove();
+                }
+                
+                addContactBtn.appendChild(circle);
+                
+                // 显示成功提示
+                successToast.classList.add('show');
+                
+                // 3秒后隐藏提示
+                setTimeout(() => {
+                    successToast.classList.remove('show');
+                }, 3000);
+                
+                // 更改按钮状态
+                addContactBtn.disabled = true;
+                addContactBtn.innerHTML = '<i class="fa fa-check mr-2"></i>已添加';
+                addContactBtn.classList.add('bg-gray-500');
+                addContactBtn.classList.remove('bg-white', 'hover:bg-opacity-90');
             });
             
             // 导航栏滚动效果
