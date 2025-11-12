@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欢迎加入青果俱乐部</title>
+    <style>
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #7f8c8d, #95a5a6);
+            color: #333;
+        }
+        header {
+            background-color: #fff;
+            color: #2c3e50;
+            text-align: center;
+            padding: 50px 20px 30px;
+            border-bottom: 3px solid #34495e;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            font-size: 2.6em;
+            margin: 0;
+            font-weight: bold;
+            color: #34495e;
+        }
+        .card {
+            background-color: #fff;
+            max-width: 900px;
+            margin: -40px auto 30px;
+            padding: 30px 35px;
+            border-radius: 15px;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .intro-text {
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #555;
+        }
+        .highlight {
+            color: #e67e22;
+            font-weight: bold;
+        }
+        a.button {
+            display: inline-block;
+            padding: 16px 32px;
+            margin: 12px 0;
+            background-color: #2980b9;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 18px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        a.button:hover {
+            background-color: #1f6695;
+            transform: translateY(-3px);
+        }
+        .id-card {
+            background-color: #ecf0f1;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin: 12px 0;
+            font-family: monospace;
+            font-size: 16px;
+            line-height: 1.6;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        .id-card span.label {
+            font-weight: bold;
+            color: #333;
+        }
+        .id-info {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .id-highlight {
+            color: #e67e22;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto 40px;
+            padding: 0 20px;
+        }
+        .section {
+            background-color: #fff;
+            padding: 25px 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.08);
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 0;
+            font-weight: bold;
+            padding: 10px 15px;
+            background-color: #fce5cd;
+            border-radius: 8px;
+            font-size: 22px;
+        }
+        p, li {
+            color: #555;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+        ul {
+            margin-left: 25px;
+        }
+        .link-text {
+            word-break: break-all;
+            color: #e67e22;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .download-tip {
+            font-size: 22px;
+            font-weight: bold;
+            color: red;
+            background-color: #fff3cd;
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 2px solid #e74c3c;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .download-buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .notice-text {
+            color: red;
+            font-weight: bold;
+            font-size: 24px;
+            padding: 8px 15px;
+            border-radius: 8px;
+            border: 2px solid #e74c3c;
+            background-color: #fff3cd;
+            display: inline-block;
+            animation: gradient-border 2s infinite;
+        }
+        @keyframes gradient-border {
+            0% { border-color: #e74c3c; background-color: #fff3cd; }
+            50% { border-color: #e67e22; background-color: #fff1a8; }
+            100% { border-color: #e74c3c; background-color: #fff3cd; }
+        }
+        .black-text {
+            color: black;
+            font-size: 22px;
+            font-weight: normal;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>欢迎加入青果俱乐部</h1>
+    </header>
+
+    <div class="container">
+        <!-- 我们的服务 -->
+        <div class="section">
+            <h2>我们的服务</h2>
+            <ul>
+                <li>24小时免费实时策略单，日内高胜率短单策略</li>
+                <li>每日4场腾讯会议直播教学</li>
+                <li>早晚盘专家在线解读，大事件定点分析指导</li>
+                <li>初级入学指导，中高级K线大师指导在线教学</li>
+                <li>注册会员可获得高额返佣</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <p class="intro-text">
+                青果俱乐部，免费课程指标，90%高胜率策略，多位大佬分析师，打造最强内群。<br>
+                <span class="highlight">国内币圈交流过于敏感，目前 QQ、微信以及钉钉交流群都换成 Safew 聊天室，接下来我们的社区交流软件主要在 Safew 聊天室。</span>
+            </p>
+
+            <div class="download-buttons">
+                <p class="download-tip">
+                    安卓用户请点击下面按钮下载 Safew 应用
+                </p>
+                <a class="button" href="https://safew.ftihzjg.com/download_app/com.i0vrm1.jjb71gjo_1.14.2_251109_afbe50e3.apk" target="_blank">安卓下载</a>
+            </div>
+
+            <div class="id-info">苹果用户：</div>
+            <div class="id-highlight">使用海外ID下载，只能登录商店下载，不要登录设置，下载完成后退出登录。</div>
+
+            <div class="id-card">
+                <span class="label">账号：</span>bsrordq9u17@hotmail.com<br>
+                <span class="label">密码：</span>aqqIS1D7d6Wo1T9Y
+            </div>
+            <div class="id-card">
+                <span class="label">账号：</span>jroberts48@hotmail.com<br>
+                <span class="label">密码：</span>622PDvBf9BfVS4U4
+            </div>
+            <div class="id-card">
+                <span class="label">账号：</span>yj0jk7bui@hotmail.com<br>
+                <span class="label">密码：</span>Y61GpGL56dQtM91H
+            </div>
+        </div>
+
+        <!-- 联系我们 -->
+        <div class="section">
+            <h2>联系我们</h2>
+            <p>
+                <span class="black-text">
+                    下载完成Safew后，使用邮箱注册
+                </span>
+            </p>
+            <p>
+                <span class="notice-text">
+                    添加 @QG799 你的专属助理Safew账号，邀请你入社区交流群。
+                </span>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
