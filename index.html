@@ -4,230 +4,416 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>欢迎加入青果俱乐部</title>
-    <style>
-        body {
-            font-family: "Microsoft YaHei", sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #7f8c8d, #95a5a6);
-            color: #333;
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1a365d',      // 深蓝色作为主色调
+                        secondary: '#2d3748',    // 深灰色作为辅助色
+                        accent: '#4a5568',       // 中灰色作为强调色
+                        highlight: '#e53e3e',    // 红色作为高亮色
+                        light: '#f7fafc',        // 浅色背景
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'subtle': '0 4px 20px rgba(0, 0, 0, 0.05)',
+                        'card': '0 10px 30px rgba(0, 0, 0, 0.08)',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
         }
-        header {
-            background-color: #fff;
-            color: #2c3e50;
-            text-align: center;
-            padding: 50px 20px 30px;
-            border-bottom: 3px solid #34495e;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow-sm {
+                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            }
+            .bg-gradient-subtle {
+                background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+            }
+            .transition-all-subtle {
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
         }
-        header h1 {
-            font-size: 2.6em;
-            margin: 0;
-            font-weight: bold;
-            color: #34495e;
+        
+        /* 自定义滚动条 */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
-        .card {
-            background-color: #fff;
-            max-width: 900px;
-            margin: -40px auto 30px;
-            padding: 30px 35px;
-            border-radius: 15px;
-            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
-            transition: transform 0.3s ease;
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
         }
-        .card:hover {
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e0;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a0aec0;
+        }
+        
+        /* 平滑滚动 */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* 微妙的卡片悬浮效果 */
+        .hover-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-card:hover {
             transform: translateY(-5px);
-        }
-        .intro-text {
-            font-size: 18px;
-            font-weight: 500;
-            line-height: 1.8;
-            margin-bottom: 20px;
-            text-align: center;
-            color: #555;
-        }
-        .highlight {
-            color: #e67e22;
-            font-weight: bold;
-        }
-        a.button {
-            display: inline-block;
-            padding: 16px 32px;
-            margin: 12px 0;
-            background-color: #2980b9;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 18px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-        a.button:hover {
-            background-color: #1f6695;
-            transform: translateY(-3px);
-        }
-        .id-card {
-            background-color: #ecf0f1;
-            padding: 15px 20px;
-            border-radius: 10px;
-            margin: 12px 0;
-            font-family: monospace;
-            font-size: 16px;
-            line-height: 1.6;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-        }
-        .id-card span.label {
-            font-weight: bold;
-            color: #333;
-        }
-        .id-info {
-            font-size: 20px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 8px;
-        }
-        .id-highlight {
-            color: #e67e22;
-            font-weight: bold;
-            font-size: 18px;
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto 40px;
-            padding: 0 20px;
-        }
-        .section {
-            background-color: #fff;
-            padding: 25px 30px;
-            margin-bottom: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.08);
-        }
-        h2 {
-            color: #34495e;
-            margin-top: 0;
-            font-weight: bold;
-            padding: 10px 15px;
-            background-color: #fce5cd;
-            border-radius: 8px;
-            font-size: 22px;
-        }
-        p, li {
-            color: #555;
-            font-size: 17px;
-            line-height: 1.8;
-        }
-        ul {
-            margin-left: 25px;
-        }
-        .link-text {
-            word-break: break-all;
-            color: #e67e22;
-            font-weight: bold;
-            font-size: 18px;
-        }
-        .download-tip {
-            font-size: 22px;
-            font-weight: bold;
-            color: red;
-            background-color: #fff3cd;
-            padding: 10px 15px;
-            border-radius: 8px;
-            border: 2px solid #e74c3c;
-            display: inline-block;
-            margin-top: 20px;
-        }
-        .download-buttons {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .notice-text {
-            color: red;
-            font-weight: bold;
-            font-size: 24px;
-            padding: 8px 15px;
-            border-radius: 8px;
-            border: 2px solid #e74c3c;
-            background-color: #fff3cd;
-            display: inline-block;
-            animation: gradient-border 2s infinite;
-        }
-        @keyframes gradient-border {
-            0% { border-color: #e74c3c; background-color: #fff3cd; }
-            50% { border-color: #e67e22; background-color: #fff1a8; }
-            100% { border-color: #e74c3c; background-color: #fff3cd; }
-        }
-        .black-text {
-            color: black;
-            font-size: 22px;
-            font-weight: normal;
-            display: inline-block;
-            margin-bottom: 8px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
-<body>
-    <header>
-        <h1>欢迎加入青果俱乐部</h1>
+<body class="font-sans bg-gray-50 text-gray-700">
+    <!-- 顶部导航栏 -->
+    <nav class="bg-white shadow-subtle fixed w-full z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <span class="text-primary text-xl font-bold">青果俱乐部</span>
+                    </div>
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <div class="flex items-center sm:hidden">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-primary focus:outline-none">
+                        <i class="fa fa-bars text-xl"></i>
+                    </button>
+                </div>
+                
+                <!-- 桌面端导航链接 -->
+                <div class="hidden sm:flex items-center">
+                    <a href="#services" class="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium transition-all-subtle">服务</a>
+                    <a href="#download" class="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium transition-all-subtle">下载</a>
+                    <a href="#contact" class="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium transition-all-subtle">联系我们</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="hidden sm:hidden bg-white shadow-md">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#services" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-md">服务</a>
+                <a href="#download" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-md">下载</a>
+                <a href="#contact" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-md">联系我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <header class="pt-32 pb-20 bg-gradient-to-br from-primary to-secondary text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-shadow-sm">欢迎加入青果俱乐部</h1>
+            <p class="text-lg sm:text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed">专业的数字资产交流社区，为您提供高质量的投资策略与教学服务</p>
+        </div>
     </header>
 
-    <div class="container">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <!-- 我们的服务 -->
-        <div class="section">
-            <h2>我们的服务</h2>
-            <ul>
-                <li>24小时免费实时策略单，日内高胜率短单策略</li>
-                <li>每日4场腾讯会议直播教学</li>
-                <li>早晚盘专家在线解读，大事件定点分析指导</li>
-                <li>初级入学指导，中高级K线大师指导在线教学</li>
-                <li>注册会员可获得高额返佣</li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <p class="intro-text">
-                青果俱乐部，免费课程指标，90%高胜率策略，多位大佬分析师，打造最强内群。<br>
-                <span class="highlight">国内币圈交流过于敏感，目前 QQ、微信以及钉钉交流群都换成 Safew 聊天室，接下来我们的社区交流软件主要在 Safew 聊天室。</span>
-            </p>
-
-            <div class="download-buttons">
-                <p class="download-tip">
-                    安卓用户请点击下面按钮下载 Safew 应用
-                </p>
-                <a class="button" href="https://safew.ftihzjg.com/download_app/com.i0vrm1.jjb71gjo_1.14.2_251109_afbe50e3.apk" target="_blank">安卓下载</a>
+        <section id="services" class="mb-16">
+            <div class="bg-white rounded-xl shadow-card p-8 hover-card">
+                <h2 class="text-2xl font-bold text-primary mb-6 flex items-center">
+                    <i class="fa fa-star-o mr-3 text-accent"></i>我们的服务
+                </h2>
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center text-primary">
+                            <i class="fa fa-clock-o"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-medium text-gray-900">24小时实时策略</h3>
+                            <p class="mt-1 text-gray-600">提供日内高胜率短单策略，助您把握每一个交易机会</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center text-primary">
+                            <i class="fa fa-video-camera"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-medium text-gray-900">直播教学</h3>
+                            <p class="mt-1 text-gray-600">每日4场腾讯会议直播教学，深入浅出讲解市场动态 14：30 15：30 19：30 20：30 </p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center text-primary">
+                            <i class="fa fa-comments-o"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-medium text-gray-900">专家在线解读</h3>
+                            <p class="mt-1 text-gray-600">早晚盘专家在线解读，大事件定点分析指导</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center text-primary">
+                            <i class="fa fa-graduation-cap"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-medium text-gray-900">分级教学指导</h3>
+                            <p class="mt-1 text-gray-600">初级入学指导，中高级K线大师指导在线教学</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center text-primary">
+                            <i class="fa fa-gift"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-medium text-gray-900">高额返佣</h3>
+                            <p class="mt-1 text-gray-600">注册会员可获得高额返佣，降低交易成本</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center text-primary">
+                            <i class="fa fa-line-chart"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-medium text-gray-900">高胜率策略</h3>
+                            <p class="mt-1 text-gray-600">90%高胜率策略，多位大佬分析师共同打造</p>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="id-info">苹果用户：</div>
-            <div class="id-highlight">使用海外ID下载，只能登录商店下载，不要登录设置，下载完成后退出登录。</div>
-
-            <div class="id-card">
-                <span class="label">账号：</span>bsrordq9u17@hotmail.com<br>
-                <span class="label">密码：</span>aqqIS1D7d6Wo1T9Y
+        <!-- 下载区域 -->
+        <section id="download" class="mb-16">
+            <div class="bg-white rounded-xl shadow-card p-8 hover-card">
+                <h2 class="text-2xl font-bold text-primary mb-6 flex items-center">
+                    <i class="fa fa-download mr-3 text-accent"></i>应用下载
+                </h2>
+                
+                <div class="mb-8">
+                    <p class="text-lg text-gray-700 mb-4">
+                        国内币圈交流过于敏感，目前 QQ、微信以及钉钉交流群都换成 Safew 聊天室，接下来我们的社区交流软件主要在 Safew 聊天室。
+                    </p>
+                </div>
+                
+                <div class="grid sm:grid-cols-2 gap-8">
+                    <!-- 安卓下载 -->
+                    <div class="bg-gray-50 rounded-lg p-6 border border-gray-100">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                            <i class="fa fa-android text-green-600 mr-2"></i>安卓用户
+                        </h3>
+                        <p class="text-gray-600 mb-6">请点击下面按钮下载 Safew 应用</p>
+                        <a href="https://safew.ftihzjg.com/download_app/com.i0vrm1.jjb71gjo_1.14.2_251109_afbe50e3.apk" 
+                           target="_blank" 
+                           class="inline-flex items-center justify-center w-full px-8 py-4 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg transition-all-subtle text-lg">
+                            <i class="fa fa-download mr-2"></i>安卓下载
+                        </a>
+                    </div>
+                    
+                    <!-- 苹果下载 -->
+                    <div class="bg-gray-50 rounded-lg p-6 border border-gray-100">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                            <i class="fa fa-apple text-gray-800 mr-2"></i>苹果用户
+                        </h3>
+                        <p class="text-gray-600 mb-4">使用海外ID下载，只能登录商店下载，不要登录设置，下载完成后退出登录。</p>
+                        
+                        <div class="space-y-4">
+                            <div class="bg-white p-5 rounded-lg border border-gray-200">
+                                <p class="text-sm text-gray-500 mb-1">账号</p>
+                                <p class="font-mono text-gray-800 text-lg break-all">bsrordq9u17@hotmail.com</p>
+                                <p class="text-sm text-gray-500 mt-3 mb-1">密码</p>
+                                <p class="font-mono text-gray-800 text-lg">aqqIS1D7d6Wo1T9Y</p>
+                            </div>
+                            
+                            <div class="bg-white p-5 rounded-lg border border-gray-200">
+                                <p class="text-sm text-gray-500 mb-1">账号</p>
+                                <p class="font-mono text-gray-800 text-lg break-all">jroberts48@hotmail.com</p>
+                                <p class="text-sm text-gray-500 mt-3 mb-1">密码</p>
+                                <p class="font-mono text-gray-800 text-lg">622PDvBf9BfVS4U4</p>
+                            </div>
+                            
+                            <div class="bg-white p-5 rounded-lg border border-gray-200">
+                                <p class="text-sm text-gray-500 mb-1">账号</p>
+                                <p class="font-mono text-gray-800 text-lg break-all">yj0jk7bui@hotmail.com</p>
+                                <p class="text-sm text-gray-500 mt-3 mb-1">密码</p>
+                                <p class="font-mono text-gray-800 text-lg">Y61GpGL56dQtM91H</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="id-card">
-                <span class="label">账号：</span>jroberts48@hotmail.com<br>
-                <span class="label">密码：</span>622PDvBf9BfVS4U4
-            </div>
-            <div class="id-card">
-                <span class="label">账号：</span>yj0jk7bui@hotmail.com<br>
-                <span class="label">密码：</span>Y61GpGL56dQtM91H
-            </div>
-        </div>
+        </section>
 
         <!-- 联系我们 -->
-        <div class="section">
-            <h2>联系我们</h2>
-            <p>
-                <span class="black-text">
-                    下载完成Safew后，使用邮箱注册
-                </span>
-            </p>
-            <p>
-                <span class="notice-text">
-                    添加 @QG799 你的专属助理Safew账号，邀请你入社区交流群。
-                </span>
-            </p>
-        </div>
+        <section id="contact">
+            <div class="bg-white rounded-xl shadow-card p-8 hover-card">
+                <h2 class="text-2xl font-bold text-primary mb-6 flex items-center">
+                    <i class="fa fa-envelope-o mr-3 text-accent"></i>联系我们
+                </h2>
+                
+                <div class="space-y-6">
+                    <p class="text-lg text-gray-700">
+                        下载完成Safew后，使用邮箱注册账号。
+                    </p>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <i class="fa fa-exclamation-triangle text-yellow-400"></i>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700 font-medium">
+                                    添加 @QG799 你的专属助理Safew账号，邀请你入社区交流群。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid sm:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">青果俱乐部</h3>
+                    <p class="text-gray-400">
+                        专业的数字资产交流社区，为您提供高质量的投资策略与教学服务。
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">联系方式</h3>
+                    <p class="text-gray-400 mb-2">
+                        <i class="fa fa-user-o mr-2"></i>专属助理: @QG799
+                    </p>
+                    <p class="text-gray-400">
+                        <i class="fa fa-info-circle mr-2"></i>交流平台: Safew 聊天室
+                    </p>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-500 text-sm">
+                <p>© 2025 青果俱乐部. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', function() {
+            // 移动端菜单交互
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+                
+                // 切换图标
+                const icon = mobileMenuButton.querySelector('i');
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                } else {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                }
+            });
+            
+            // 点击移动端菜单项后关闭菜单
+            const mobileMenuItems = mobileMenu.querySelectorAll('a');
+            mobileMenuItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                    const icon = mobileMenuButton.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+            
+            // 导航栏滚动效果
+            const nav = document.querySelector('nav');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 10) {
+                    nav.classList.add('shadow-md');
+                    nav.classList.remove('shadow-subtle');
+                } else {
+                    nav.classList.remove('shadow-md');
+                    nav.classList.add('shadow-subtle');
+                }
+            });
+            
+            // 添加卡片进入视口时的动画效果
+            const cards = document.querySelectorAll('.hover-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-4');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            cards.forEach(card => {
+                card.classList.add('opacity-0', 'translate-y-4', 'transition-all', 'duration-500');
+                observer.observe(card);
+            });
+            
+            // 下载按钮点击效果
+            const downloadButtons = document.querySelectorAll('a[href$=".apk"]');
+            downloadButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    // 添加点击波纹效果
+                    const circle = document.createElement('span');
+                    const diameter = Math.max(button.clientWidth, button.clientHeight);
+                    const radius = diameter / 2;
+                    
+                    circle.style.width = circle.style.height = `${diameter}px`;
+                    circle.style.left = `${e.clientX - button.getBoundingClientRect().left - radius}px`;
+                    circle.style.top = `${e.clientY - button.getBoundingClientRect().top - radius}px`;
+                    circle.classList.add('ripple');
+                    
+                    const ripple = button.getElementsByClassName('ripple')[0];
+                    if (ripple) {
+                        ripple.remove();
+                    }
+                    
+                    button.appendChild(circle);
+                });
+            });
+        });
+    </script>
+    
+    <style>
+        /* 波纹效果样式 */
+        .ripple {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+        }
+        
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    </style>
 </body>
 </html>
