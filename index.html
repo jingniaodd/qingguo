@@ -217,14 +217,11 @@
                             </div>
                         </div>
                         
-                        <div class="bg-white bg-opacity-5 p-4 rounded-lg flex items-center justify-between">
+                        <div class="bg-white bg-opacity-5 p-4 rounded-lg">
                             <div>
                                 <p class="text-sm text-gray-300">Safew账号</p>
-                                <p class="text-2xl font-mono font-bold">@QG799</p>
+                                <p class="text-2xl font-mono font-bold">QG799</p>
                             </div>
-                            <button id="add-contact-btn" class="bg-white text-primary px-6 py-2 rounded-lg font-medium hover:bg-opacity-90 transition-all-subtle flex items-center relative overflow-hidden">
-                                <i class="fa fa-plus mr-2"></i>添加
-                            </button>
                         </div>
                         
                         <p class="mt-4 text-sm text-gray-300">
@@ -274,7 +271,7 @@
                                 <p class="text-sm text-gray-500 mb-1">账号</p>
                                 <p class="font-mono text-gray-800 text-lg break-all">bsrordq9u17@hotmail.com</p>
                                 <p class="text-sm text-gray-500 mt-3 mb-1">密码</p>
-                                <p class="font-mono text-gray-800 text-lg">aqqIS1D7d6Wo1T9Y</p>
+                                <p class="font-mono text-gray-800 text-lg">wI88u4dR43XnQQfb</p>
                             </div>
                             
                             <div class="bg-white p-5 rounded-lg border border-gray-200">
@@ -297,11 +294,7 @@
         </section>
     </div>
 
-    <!-- 成功提示 -->
-    <div id="success-toast" class="success-toast">
-        <i class="fa fa-check-circle"></i>
-        <span>已成功添加 @QG799 到您的联系人</span>
-    </div>
+
     
     <!-- 页脚 -->
     <footer class="bg-gray-800 text-white py-12">
@@ -316,7 +309,7 @@
                 <div>
                     <h3 class="text-xl font-bold mb-4">联系方式</h3>
                     <p class="text-gray-400 mb-2">
-                        <i class="fa fa-user-o mr-2"></i>专属助理: @QG799
+                        <i class="fa fa-user-o mr-2"></i>专属助理: QG799
                     </p>
                     <p class="text-gray-400">
                         <i class="fa fa-info-circle mr-2"></i>交流平台: Safew 聊天室
@@ -362,42 +355,7 @@
                 });
             });
             
-            // 添加联系人按钮交互
-            const addContactBtn = document.getElementById('add-contact-btn');
-            const successToast = document.getElementById('success-toast');
-            
-            addContactBtn.addEventListener('click', function(e) {
-                // 添加点击波纹效果
-                const circle = document.createElement('span');
-                const diameter = Math.max(addContactBtn.clientWidth, addContactBtn.clientHeight);
-                const radius = diameter / 2;
-                
-                circle.style.width = circle.style.height = `${diameter}px`;
-                circle.style.left = `${e.clientX - addContactBtn.getBoundingClientRect().left - radius}px`;
-                circle.style.top = `${e.clientY - addContactBtn.getBoundingClientRect().top - radius}px`;
-                circle.classList.add('ripple');
-                
-                const ripple = addContactBtn.getElementsByClassName('ripple')[0];
-                if (ripple) {
-                    ripple.remove();
-                }
-                
-                addContactBtn.appendChild(circle);
-                
-                // 显示成功提示
-                successToast.classList.add('show');
-                
-                // 3秒后隐藏提示
-                setTimeout(() => {
-                    successToast.classList.remove('show');
-                }, 3000);
-                
-                // 更改按钮状态
-                addContactBtn.disabled = true;
-                addContactBtn.innerHTML = '<i class="fa fa-check mr-2"></i>已添加';
-                addContactBtn.classList.add('bg-gray-500');
-                addContactBtn.classList.remove('bg-white', 'hover:bg-opacity-90');
-            });
+
             
             // 导航栏滚动效果
             const nav = document.querySelector('nav');
